@@ -17,7 +17,5 @@ jobs:
       - uses: actions/checkout@v4
 
       # Setup NodeJS
-      - uses: actions/setup-node@v4
-
-      - name: Install dependencies
-        run: npm ci
+      - name: test node version
+        run: echo "::set-output name=version::$(node --version)"
