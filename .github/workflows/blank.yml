@@ -9,6 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '^3.12'
+    - name: Install Python dependencies
+      uses: py-actions/py-dependency-install@v4
+      with:
+          path: "requirements.txt"
     - uses: actions/setup-node@v3
       with:
         node-version: 18
