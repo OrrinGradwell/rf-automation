@@ -12,10 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
@@ -26,3 +22,8 @@ jobs:
         run: npm ci
       - name: Install playwright browsers
         run: npx playwright install --with-deps
+
+      # Run Robot Framework Tests
+      - name: Robot Framework
+        run: |
+          robot -d results tests
