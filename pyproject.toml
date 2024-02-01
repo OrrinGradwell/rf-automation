@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "rf-automation"
+version = "0.1.0"
+description = "Robot Framework and Playwright"
+authors = ["Orrin Gradwell <orrin.gradwell@gmail.com>"]
+license = "GNU"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+robotframework = "^7.0"
+robotframework-browser = "^18.0.0"
+robotframework-robocop = "^5.0.3"
+
+[tool.poetry.group.dev.dependencies]
+playwright = "^1.41.1"
+pre-commit = "^3.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
