@@ -24,4 +24,4 @@ jobs:
 
     - name: Run Robot Frontend Tests
       run: |
-        pip list
+        robot -d results tests
