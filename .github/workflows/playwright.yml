@@ -23,6 +23,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+    - name: Link Robot with Playwright
+      run: |
+        rfbrowser init
+
     - name: Run Robot Frontend Tests
       run: |
         robot -d results tests
