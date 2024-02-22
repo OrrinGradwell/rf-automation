@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - uses: actions/setup-node@v3
       with:
         node-version: 18
@@ -17,3 +18,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
+    - name: Install Python dependencies
+      uses: py-actions/py-dependency-install@v4
+      with:
+          path: "requirements.txt"

@@ -1,16 +1,30 @@
 *** Settings ***
 Documentation
-...    This is a basic test
+...    This is a simple login test.
+
+Library
+...    Browser
 
 Test Tags
-...    basic
+...    min
 
 
 *** Test Cases ***
-Test Case 1
+KDRP validation Suite
     [Documentation]
-    ...    This is a basic test case
-    ...    simply logging to console
+    ...    Loop over the KDRP subscriptions and perform various checks.
 
-    Log To Console
-    ...    This is a basic test case
+    # Launch Browser
+    New Browser
+    ...    chromium
+    ...    headless=false
+
+    Set Browser Timeout
+    ...    1 minute
+
+    New Context
+    ...    viewport={'width': 1680, 'height': 1050}
+
+    # Create new page
+    New Page
+    ...    https://www.google.com
