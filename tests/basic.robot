@@ -17,7 +17,7 @@ KDRP validation Suite
     # Launch Browser
     New Browser
     ...    chromium
-    ...    headless=false
+    ...    headless=true
 
     Set Browser Timeout
     ...    1 minute
