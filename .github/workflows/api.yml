@@ -15,12 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        role-to-assume: arn:aws:iam::890086007145:role/github-actions-testing-automation
-        aws-region: eu-west-1
-
     - name: Use Node.js 20.x
       uses: actions/setup-node@v3
       with:
