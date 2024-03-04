@@ -11,6 +11,7 @@ python = "^3.12"
 robotframework = "^7.0"
 robotframework-browser = "^18.0.0"
 robotframework-robocop = "^5.0.3"
+robotframework-requests = "^0.9.6"
 
 [tool.poetry.group.dev.dependencies]
 playwright = "^1.41.1"

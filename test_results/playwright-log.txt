@@ -1,0 +1,27 @@
+{"level":30,"time":"2024-03-04T09:55:06.968Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Listening on 50322"}
+{"level":30,"time":"2024-03-04T09:55:08.091Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.091Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.096Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.096Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:9968:15)
+    at PlaywrightServer.getActiveBrowser (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:10588:59)
+    at PlaywrightServer.setTimeout (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:10838:57)
+    at handleUnary (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server.js:852:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+=============================================================
+{"level":30,"time":"2024-03-04T09:55:08.111Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.111Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:9968:15)
+    at PlaywrightServer.getActiveBrowser (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:10588:59)
+    at PlaywrightServer.setTimeout (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/index.js:10838:57)
+    at handleUnary (/Volumes/untitled/sandbox/projects/rf-automation/.venv/lib/python3.12/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server.js:852:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+=============================================================
+{"level":30,"time":"2024-03-04T09:55:08.123Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.123Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T09:55:08.175Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2024-03-04T09:55:08.175Z","pid":21919,"hostname":"Orrins-Mac.local","msg":"End of node method closeAllBrowsers"}
