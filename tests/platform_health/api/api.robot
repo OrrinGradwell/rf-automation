@@ -22,7 +22,7 @@ API
     ${response}=
     ...    GET On Session
     ...    api
-    ...    /_status
+    ...    /films
 
     Request Should Be Successful
     ...    ${response}
