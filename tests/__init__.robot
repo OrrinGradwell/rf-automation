@@ -20,7 +20,7 @@ Setup Environment
     # Obtain AWS Secrets
     # Connect To Postgres
     # Connect To CINT
-    Connect To THANOS DEV
+    # Connect To THANOS DEV
 
 Teardown Environment
     [Documentation]
