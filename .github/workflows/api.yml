@@ -1,0 +1,59 @@
+name: API Automations
+
+on:
+  push:
+    branches: [ main ]
+
+  schedule:
+    - cron:  '0 9,12,16 * * *'
+
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # - name: Grab credentials from AWS
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     role-to-assume: arn:aws:iam::890086007145:role/github-actions-testing-automation
+    #     aws-region: eu-west-1
+
+    - name: Setup Python 3.12
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Install PIP Libraries
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Run Automated Tests
+      run: |
+        robot -d test_results -i api tests
+
+    - name: Upload Test Results if Failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test_results
+        path: test_results/
+        retention-days: 31
+        overwrite: true
+
+    # - name: Post Action Outcome to Slack if Failed
+    #   if: failure()
+    #   id: slack
+    #   uses: slackapi/slack-github-action@v1.25.0
+    #   with:
+    #     channel-id: 'C06HL22GPT4'
+    #     slack-message: "Automated API checks has failed. Please check the test results at ${{ steps.slack.outputs.permalink }}."
+    #   env:
+    #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

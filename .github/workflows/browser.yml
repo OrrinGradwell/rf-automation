@@ -1,0 +1,68 @@
+name: Browser Automations
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron:  '0 9,12,16 * * *'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # - name: Grab credentials from AWS
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     role-to-assume: arn:aws:iam::890086007145:role/github-actions-testing-automation
+    #     aws-region: eu-west-1
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - run: |
+        npm install
+        npm ci
+
+    - name: Install PIP Libraries
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+
+    - name: Link RobotFramework with Playwright Browsers
+      run: |
+        rfbrowser init
+
+    - name: Run Automated Tests
+      run: |
+        pabot -d test_results -i frontend tests
+
+    - name: Upload Test Results if Failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test_results
+        path: test_results/
+        retention-days: 31
+        overwrite: true
+
+    # - name: Post Action Outcome to Slack if Failed
+    #   if: failure()
+    #   id: slack
+    #   uses: slackapi/slack-github-action@v1.25.0
+    #   with:
+    #     channel-id: 'C06HL22GPT4'
+    #     slack-message: "Automated BROWSER checks has failed. Please check the test results at ${{ steps.slack.outputs.permalink }}."
+    #   env:
+    #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
