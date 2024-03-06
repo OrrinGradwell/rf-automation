@@ -10,7 +10,7 @@ Test Tags
 
 
 *** Test Cases ***
-Browser
+API
     [Documentation]
     ...    This is a test case for an api
 
@@ -21,7 +21,7 @@ Browser
 
     ${response}=
     ...    GET On Session
-    ...    thanos
+    ...    api
     ...    /_status
 
     Request Should Be Successful
