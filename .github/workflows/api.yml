@@ -37,7 +37,7 @@ jobs:
 
     - name: Run Automated Tests
       run: |
-        robot -d test_results -i api tests
+        pabot -d test_results -i api tests
 
     - name: Upload Test Results if Failed
       if: failure()
